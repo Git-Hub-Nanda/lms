@@ -1,0 +1,56 @@
+.user-action-container {
+    background-color: white;
+    padding: 10px 10%;
+    text-align: center;
+    display: none;
+}
+
+.user-action-container h2 {
+    text-transform: uppercase;
+}
+
+.user-action-container label {
+    float: left;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0 30px;
+}
+
+.add, .edit, .delete, .search-results {
+    display: none;
+}
+
+hr {
+    margin: 20px 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+
+td {
+    text-align: left;
+}
+
+table tr:nth-child(even) {
+    background-color: rgb(171, 171, 171, 0.2);
+}
+
+thead {
+    background-color: darkgray;
+}

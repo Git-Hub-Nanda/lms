@@ -1,0 +1,9 @@
+/**
+    Combine All CSS
+*/
+
+@import 'style.css';
+@import 'login.css';
+@import 'home.css';
+@import 'navigation.css';
+@import 'add.css';

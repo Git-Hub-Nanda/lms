@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/data.js"></script>
+    <script src="js/login.js"></script>
+</head>
+
+<body>
+    <div class="base-container">
+        <!-- Overlay -->
+        <div class="overlay"></div>
+        <!-- Login -->
+        <div class="login-container">
+            <div class="row lheader">
+                <h1>Log In</h1>
+            </div>
+            <hr>
+            <form action="#">
+                <div class="row input-bg first-input-vpad">
+                    <div class="col-xs-12 col-lg-6">
+                        <label>User Type</label>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <select name="user-type" id="user-type">
+                            <option value="">= Click here =</option>
+                            <option value="ADMIN">Admin</option>
+                            <option value="STUDENT">Student</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row input-bg first-input-vpad">
+                    <div class="col-xs-12 col-lg-6">
+                        <label>Usename</label>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <input type="text" name="user-name" id="user-name" placeholder="Enter your username...">
+                    </div>
+                </div>
+                <div class="row input-bg last-input-vpad">
+                    <div class="col-xs-12 col-lg-6">
+                        <label>Password</label>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <input type="password" name="password" id="password" placeholder="Enter your username...">
+                    </div>
+                </div>
+                <hr>
+                <div class="row footer">
+                    <div class="login-actions-wrap">
+                        <div class="row">
+                            <input type="button" value="Log In" onclick="logIn();">
+                            <input type="reset" value="Reset">
+                        </div>
+                        <div class="row">
+                            <a href="#">Register Here</a>
+                        </div>
+                        <div class="row forgot-password">
+                            <a href="#">Forgot Password ?</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

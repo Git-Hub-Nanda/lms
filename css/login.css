@@ -1,0 +1,144 @@
+
+.login-container {
+    position: absolute;
+    z-index: 2;
+    background-color: lightgray;
+    left: 10%;
+    right: 10%;
+    top: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 0px 50px black;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+label {
+    float: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+input[type="text"], input[type="password"] {
+    font-size: 15px;
+    color: black;
+    /* border-radius: 8px; */
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid black;
+}
+
+select {
+    font-size: 15px;
+    color: black;
+    /* border-radius: 8px; */
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    border: 1px solid black;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    box-shadow: 0 0 5px black;
+}
+
+input[type="button"], input[type="reset"] {
+    font-size: 18px;
+    color: black;
+    border-radius: 15px;
+    background-color: transparent;
+    border: 0;
+    padding: 5px 10px;
+    margin: 10px 10px;
+    min-width: 100px;
+    box-shadow: 0px 5px 0px black;
+    background-image: linear-gradient(180deg, silver, transparent);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+input[type="button"]:hover, input[type="reset"]:hover {
+    box-shadow: 0px 1px 15px black;
+}
+
+.login-actions-wrap {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.login-actions-wrap a {
+    display: block;
+    font-size: large;
+    color: blue;
+}
+
+.forgot-password a {
+    color: red;
+}
+
+.login-actions-wrap div {
+    margin: 10px 0;
+}
+
+.input-bg {
+    background-color: white;
+    padding: 0 20px;
+}
+
+.first-input-vpad {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.last-input-vpad {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.middle-input-vpad {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.lheader {
+    background-image: linear-gradient(0deg, white, transparent);
+}
+
+.lfooter {
+    background-image: linear-gradient(180deg, white, transparent);
+}
+
+@media screen and (min-width: 768px) {
+    .login-container {
+        left: 20%;
+        right: 20%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .login-container {
+        left: 25%;
+        right: 25%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .login-container {
+        left: 30%;
+        right: 30%;
+    }
+}

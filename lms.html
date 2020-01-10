@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var user_type = sessionStorage.getItem("user-type");    
+        var user_name = sessionStorage.getItem("user-name"); 
+        if(user_type == null || user_type == undefined
+            || user_name == null || user_name == undefined) {
+                window.location.href = "./login.html";
+        }
+    </script>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="js/data.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/add.js"></script>
+</head>
+
+<body>
+    <div class="base-container">
+        <!-- Home -->
+        <div class="home-container">
+            <div class="row header">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <a href="./lms.html">
+                        <i class="material-icons home">home</i>
+                    </a>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                    <header>Library Management System</header>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <a href="#" onclick="logout();">
+                        <i class="material-icons exit">exit_to_app</i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="row">
+                <nav>
+                    <div class="menu-wrapper">
+                        <a href="#">Menu</a>
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#" onclick="loadComponent('approval');">APPROVALS</a></li>
+                                <li><a href="#" onclick="loadComponent('add');">ADD BOOK</a></li>
+                                <li><a href="#" onclick="loadComponent('edit');">EDIT BOOK</a></li>
+                                <li><a href="#" onclick="loadComponent('delete');">DELETE BOOK</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Actual User Actions -->
+            <div class="row user-action-container">
+                <!-- Add -->
+                <div class="add" id="add">
+                    <form action="#">
+                        <h2>Add Book</h2>
+                        <hr>
+                        <div class="row input-bg first-input-vpad">
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <label for="">Book Name</label>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <input type="text" name="book_name" id="book_name" placeholder="Enter Book Name">
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <label for="">Author</label>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <input type="text" name="author" id="author" placeholder="Enter Author Name">
+                            </div>
+                        </div>
+                        <div class="row input-bg last-input-vpad">
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <label for="">Publisher</label>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <input type="text" name="publisher" id="publisher" placeholder="Enter Publisher Name">
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <label for="">No of Stocks</label>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <input type="text" name="stocks" id="stocks" placeholder="Enter number of Stocks">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="actions">
+                                <input type="button" value="Add" id="add-btn" onclick="add();">
+                                <input type="reset" value="Reset" id="re-set-btn">
+                                <input type="button" value="Cancel" onclick="cancel('add');">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Edit -->
+                <div class="edit" id="edit">
+                    <form action="#">
+                        <h2>EDIT BOOK</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Book Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="book_name" id="book_name" placeholder="Enter Book Name">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Author</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="author" id="author" placeholder="Enter Author Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Publisher</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="publisher" id="publisher" placeholder="Enter Publisher Name">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">No of Stokes</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="stokes" id="stokes" placeholder="Enter number of Stokes">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="actions">
+                                <input type="button" value="Edit">
+                                <input type="reset" value="Reset">
+                                <input type="button" value="Cancel" onclick="cancel('edit');">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Delete -->
+                <div class="delete" id="delete">
+                    <form action="#">
+                        <h2>DELETE BOOK</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Book Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="book_name" id="book_name" placeholder="Enter Book Name">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Author</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="author" id="author" placeholder="Enter Author Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Publisher</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="publisher" id="publisher" placeholder="Enter Publisher Name">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">No of Stokes</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="stokes" id="stokes" placeholder="Enter number of Stokes">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="actions">
+                                <input type="button" value="Delete">
+                                <input type="reset" value="Reset">
+                                <input type="button" value="Cancel" onclick="cancel('delete');">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Approvals -->
+                <div class="approval" id="approval">
+                    <form action="#">
+                        <h2>Pending Approvals</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Book Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="book_name" id="book_name" placeholder="Enter Book Name">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Author</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="author" id="author" placeholder="Enter Author Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">Publisher</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="publisher" id="publisher" placeholder="Enter Publisher Name">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <label for="">No of Stokes</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                                <input type="text" name="stokes" id="stokes" placeholder="Enter number of Stokes">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="actions">
+                                <input type="button" value="Approve">
+                                <input type="reset" value="Reset">
+                                <input type="button" value="Cancel" onclick="cancel('approval');">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Search Results -->
+                <div class="search-results" id="search-results">
+                    <h2>Searched Data</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="data-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Book Name</th>
+                                        <th>Author</th>
+                                        <th>Publisher</th>
+                                        <th>Stocks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mathematics</td>
+                                        <td>Natarj</td>
+                                        <td>Nauare</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mathematics</td>
+                                        <td>Natarj</td>
+                                        <td>Nauare</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mathematics</td>
+                                        <td>Natarj</td>
+                                        <td>Nauare</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mathematics</td>
+                                        <td>Natarj</td>
+                                        <td>Nauare</td>
+                                        <td>10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Other Details -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-8">
+                    <div class="sec1">
+                        <p>
+                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
+                            hic
+                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
+                            exercitationem veniam alias voluptatibus consequatur?
+                        </p>
+                        <p>
+                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
+                            hic
+                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
+                            exercitationem veniam alias voluptatibus consequatur?
+                        </p>
+                        <p>
+                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
+                            hic
+                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
+                            exercitationem veniam alias voluptatibus consequatur?
+                        </p>
+                        <p>
+                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
+                            hic
+                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
+                            exercitationem veniam alias voluptatibus consequatur?
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                    <div class="frequent-books-wrap">
+                        <div class="frequent-books">
+                            <h2>Mathematics</h2>
+                            <p>
+                                <h4>Author : Linganna</h4>
+                                <h4>Publisher : Linganna</h4>
+                                <h4>Availability : Yes</h4>
+                                <h4>Count : 5</h4>
+                            </p>
+                        </div>
+                        <div class="frequent-books">
+                            <h2>Mathematics</h2>
+                            <p>
+                                <h4>Author : Linganna</h4>
+                                <h4>Publisher : Linganna</h4>
+                                <h4>Availability : Yes</h4>
+                                <h4>Count : 5</h4>
+                            </p>
+                        </div>
+                        <div class="see-more">
+                            <button></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 contact-section">
+                    <p>Email&nbsp;<i class="material-icons email">email</i></p>
+                    <p>Contact&nbsp;<i class="material-icons phone">phone</i></p>
+                    <p>Website&nbsp;<i class="material-icons email">email</i></p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <p>anandahn110@gmail.com</p>
+                    <p>8105610459</p>
+                    <p>https://www.lms.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
