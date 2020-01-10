@@ -2,7 +2,6 @@
  * Read the book details from user(Admin) and store it in the data.js.
  */
 function add() {
-    document.getElementById("add-btn").disabled = "disabled";
     /**
      * Reading input values from ADD form.
      */
@@ -15,41 +14,39 @@ function add() {
      */
     if (book_name == "" || book_name == null || book_name == undefined) {    /** Checking if the book_name has value or not. */
         alert("Please enter the Book Name.");           /** Displaying message to the user if value is not there. */
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;                                   /** Returning out of the function. */
     } else if (!(isItAAlphaNumericData(book_name))) {      /** Checking valid book_name using a function */
         alert("Please enter valid Book Name.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else if (author == "" || author == null || author == undefined) {
         alert("Please enter the Author.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else if (!(isItAAlphaNumericData(author))) {      /** Checking valid author using a function */
         alert("Please enter valid Author.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else if (publisher == "" || publisher == null || publisher == undefined) {
         alert("Please enter the Publisher.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else if (!(isItAAlphaNumericData(publisher))) {      /** Checking valid publisher using a function */
         alert("Please enter valid Publisher.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else if (stocks == "" || stocks == null || stocks == undefined) {
         alert("Please enter the no of Stocks.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else if (!(isItANumericData(stocks))) {      /** Checking valid stocks using a function */
         alert("Please enter valid no of Stocks.");
-        document.getElementById("add-btn").removeAttribute("disabled");
         return false;
     } else {
         /**
          * Now all the user inputs are valid. 
          * Collect them in an object and store it in data.js
          */
+        let books = localStorage.getItem("books");
+        if (books == "" || books == undefined || books == null) {
+            books = [];
+        } else {
+            books = JSON.parse(books);
+        }
         let book_id = 100;
         if (books.length > 0) {
             books.sort((b1, b2) => b2.bookId - b1.bookId);
@@ -71,11 +68,9 @@ function add() {
             localStorage.setItem("books", JSON.stringify(books));
             alert("Book added successfully with an ID: " + book_id);
             document.getElementById("re-set-btn").click();
-            document.getElementById("add-btn").removeAttribute("disabled");
             return false;
         } else {
             alert("Failed to add the book, please try later..");
-            document.getElementById("add-btn").removeAttribute("disabled");
             return false;
         }
     }
