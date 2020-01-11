@@ -1,3 +1,22 @@
+function loadMenu() {
+    var logindetails = sessionStorage.getItem("user-type");
+    var menu = document.getElementById("menu");
+    if (logindetails == "ADMIN"  ) {
+        var adminmenucontent = "<ul>" 
+            + '<li><a href="#" onclick="loadComponent(\'approval\');">APPROVALS</a></li>'
+            + '<li><a href="#" onclick="loadComponent(\'add\');">ADD BOOK</a></li>'
+            + '<li><a href="#" onclick="loadComponent(\'edit\');">EDIT BOOK</a></li>'
+            + '<li><a href="#" onclick="loadComponent(\'delete\');">DELETE BOOK</a></li>'
+        + "</ul>";
+        menu.innerHTML = adminmenucontent;
+    } else {
+        var studentmenucontent = '<ul class="st-justify-content">' 
+            + '<li><a href="#" onclick="loadComponent(\'request\');">REQUEST BOOK</a></li>'
+            + '<li><a href="#" onclick="loadComponent(\'return\');">RETURN BOOK</a></li>'
+        + '</ul>';
+        menu.innerHTML = studentmenucontent; 
+    }
+}
 
 function loadComponent(componentId) {
     var components = document.getElementById(componentId).parentElement.children;

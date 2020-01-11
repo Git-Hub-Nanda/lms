@@ -11,6 +11,7 @@
         }
         //Initial data load.
         function loadInitialData() {
+            loadMenu();
             loadBooksToEdit();
             loadBooksToDelete();
         }
@@ -50,14 +51,7 @@
                 <nav>
                     <div class="menu-wrapper">
                         <a href="#">Menu</a>
-                        <div class="menu">
-                            <ul>
-                                <li><a href="#" onclick="loadComponent('approval');">APPROVALS</a></li>
-                                <li><a href="#" onclick="loadComponent('add');">ADD BOOK</a></li>
-                                <li><a href="#" onclick="loadComponent('edit');">EDIT BOOK</a></li>
-                                <li><a href="#" onclick="loadComponent('delete');">DELETE BOOK</a></li>
-                            </ul>
-                        </div>
+                        <div class="menu" id="menu"> </div>
                     </div>
                 </nav>
             </div>
