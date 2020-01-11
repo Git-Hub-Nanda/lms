@@ -12,6 +12,7 @@
         //Initial data load.
         function loadInitialData() {
             loadBooksToEdit();
+            loadBooksToDelete();
         }
     </script>
     <title>Home</title>
@@ -22,6 +23,7 @@
     <script src="js/login.js"></script>
     <script src="js/add.js"></script>
     <script src="js/edit.js"></script>
+    <script src="js/delete.js"></script>
 </head>
 
 <body onload="loadInitialData();">
@@ -169,46 +171,19 @@
                 </div>
                 <!-- Delete -->
                 <div class="delete" id="delete">
-                    <form action="#">
-                        <h2>DELETE BOOK</h2>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">Book Name</label>
+                    <h2>AVAILABLE BOOKS</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="delete-books-container">
+
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="book_name" id="book_name" placeholder="Enter Book Name">
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">Author</label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="author" id="author" placeholder="Enter Author Name">
+                            <hr>
+                            <div id="uppercancel">
+                                <input type="button" value="Cancel" onclick="cancel('edit');">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">Publisher</label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="publisher" id="publisher" placeholder="Enter Publisher Name">
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">No of Stokes</label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="stokes" id="stokes" placeholder="Enter number of Stokes">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="actions">
-                                <input type="button" value="Delete">
-                                <input type="reset" value="Reset">
-                                <input type="button" value="Cancel" id="cancel" onclick="cancel('delete');">
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
                 <!-- Approvals -->
                 <div class="approval" id="approval">

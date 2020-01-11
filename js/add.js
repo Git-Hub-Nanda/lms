@@ -95,6 +95,7 @@ function add() {
             alert("Book added successfully with an ID: " + book_id);
             document.getElementById("re-set-btn").click();
             loadBooksToEdit();
+            loadBooksToDelete();
             return false;
         } else {
             alert("Failed to add the book, please try later..");

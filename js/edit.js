@@ -127,8 +127,7 @@ function save() {
   } else if (!(isItANumericData(stocks))) {      /** Checking valid stocks using a function */
     alert("Please enter valid no of Stocks.");
     return false;
-  }
-  else {
+  } else {
     var books = localStorage.getItem("books");
     console.log("books : ", books);
     books = JSON.parse(books);
@@ -185,6 +184,7 @@ function save() {
       document.getElementById("edit-section").style.display = "none";
       document.getElementById("uppercancel").style.display = "block";
       loadBooksToEdit();
+      loadBooksToDelete();
       window.scrollTo(0, 0);
     }
   }
