@@ -35,7 +35,7 @@ table {
     margin: 15px 0;
 }
 
-table, tr, th, td {
+table, tr {
     border: 1px solid black;
 }
 
@@ -47,10 +47,10 @@ td {
     text-align: left;
 }
 
-table tr:nth-child(even) {
-    background-color: rgb(171, 171, 171, 0.2);
-}
-
 thead {
     background-color: darkgray;
 }
+
+#edit-section{
+    display:none;
+} 

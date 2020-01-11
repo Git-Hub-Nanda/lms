@@ -3,11 +3,15 @@
 
 <head>
     <script>
-        var user_type = sessionStorage.getItem("user-type");    
-        var user_name = sessionStorage.getItem("user-name"); 
-        if(user_type == null || user_type == undefined
+        var user_type = sessionStorage.getItem("user-type");
+        var user_name = sessionStorage.getItem("user-name");
+        if (user_type == null || user_type == undefined
             || user_name == null || user_name == undefined) {
-                window.location.href = "./login.html";
+            window.location.href = "./login.html";
+        }
+        //Initial data load.
+        function loadInitialData() {
+            loadBooksToEdit();
         }
     </script>
     <title>Home</title>
@@ -17,9 +21,10 @@
     <script src="js/navigation.js"></script>
     <script src="js/login.js"></script>
     <script src="js/add.js"></script>
+    <script src="js/edit.js"></script>
 </head>
 
-<body>
+<body onload="loadInitialData();">
     <div class="base-container">
         <!-- Home -->
         <div class="home-container">
@@ -102,42 +107,62 @@
                 <!-- Edit -->
                 <div class="edit" id="edit">
                     <form action="#">
-                        <h2>EDIT BOOK</h2>
+                        <h2>AVAILABLE BOOKS</h2>
                         <hr>
+                        <input type="hidden" id="editing_book_id" name="editing_book_id">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">Book Name</label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="book_name" id="book_name" placeholder="Enter Book Name">
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">Author</label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="author" id="author" placeholder="Enter Author Name">
+                            <div class="col-xs-12">
+                                <div id="edit-books-container">
+
+                                </div>
+                                <hr>
+                                <div id="uppercancel">
+                                    <input type="button" value="Cancel" onclick="cancel('edit');">
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">Publisher</label>
+                        <hr id="hr-above-edit">
+                        <div id="edit-section">
+                            <h2>EDIT BOOK</h2>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <label for="">Book Name</label>
+                                </div>
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <input type="text" name="e_book_name" id="e_book_name"
+                                        placeholder="Enter Book Name">
+                                </div>
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <label for="">Author</label>
+                                </div>
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <input type="text" name="e_author" id="e_author" placeholder="Enter Author Name">
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="publisher" id="publisher" placeholder="Enter Publisher Name">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <label for="">Publisher</label>
+                                </div>
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <input type="text" name="e_publisher" id="e_publisher"
+                                        placeholder="Enter Publisher Name">
+                                </div>
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <label for="">No of Stocks</label>
+                                </div>
+                                <div class="col-xs-12 col-md-6 col-lg-3">
+                                    <input type="text" name="e_stocks" id="e_stocks"
+                                        placeholder="Enter number of Stokes">
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <label for="">No of Stokes</label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                                <input type="text" name="stokes" id="stokes" placeholder="Enter number of Stokes">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="actions">
-                                <input type="button" value="Edit">
-                                <input type="reset" value="Reset">
-                                <input type="button" value="Cancel" onclick="cancel('edit');">
+                            <hr>
+                            <div class="row">
+                                <div class="actions">
+                                    <input type="button" value="Save" id="Save" disabled="disabled" onclick="save();">
+                                    <input type="reset" value="Reset" id="e-reset">
+                                    <input type="button" value="Cancel" onclick="cancel('edit');">
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -180,7 +205,7 @@
                             <div class="actions">
                                 <input type="button" value="Delete">
                                 <input type="reset" value="Reset">
-                                <input type="button" value="Cancel" onclick="cancel('delete');">
+                                <input type="button" value="Cancel" id="cancel" onclick="cancel('delete');">
                             </div>
                         </div>
                     </form>

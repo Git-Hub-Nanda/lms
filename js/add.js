@@ -52,13 +52,39 @@ function add() {
             books.sort((b1, b2) => b2.bookId - b1.bookId);
             book_id = books[0].bookId;
         }
+        var today = "";
+        var d = new Date();
+        var td1 = d.getDate();
+        if (td1 <= 9) {
+            td1 = "0" + td1;
+        }
+        var tm = d.getMonth();
+        tm = tm + 1;
+        if (tm <= 9) {
+            tm = "0" + tm;
+        }
+        var ty = d.getFullYear();
+        var th = d.getHours();
+        if (th <= 9) {
+            th = "0" + th;
+        }
+        var tmin = d.getMinutes();
+        if (tmin <= 9) {
+            tmin = "0" + tmin;
+        }
+        var ts = d.getSeconds();
+        if (ts <= 9) {
+            ts = "0" + ts;
+        }
+        today = td1 + "-" + (tm) + "-" + ty + " " + th + ":" + tmin + ":" + ts;
+
         let book = {
             bookId: ++book_id,
             bookName: book_name,
             author: author,
             publisher: publisher,
             stocks: stocks,
-            addedDate: new Date(),
+            addedDate: today,
             addedBy: sessionStorage.getItem("user-name")
         };
         let books_count_previous = books.length;
@@ -68,6 +94,7 @@ function add() {
             localStorage.setItem("books", JSON.stringify(books));
             alert("Book added successfully with an ID: " + book_id);
             document.getElementById("re-set-btn").click();
+            loadBooksToEdit();
             return false;
         } else {
             alert("Failed to add the book, please try later..");
