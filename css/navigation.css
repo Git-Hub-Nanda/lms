@@ -24,11 +24,7 @@ nav .menu ul {
     margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-}
-
-.st-justify-content {
-    justify-content: space-around !important;
+    justify-content: space-around;
 }
 
 nav .menu ul li {

@@ -52,39 +52,14 @@ function add() {
             books.sort((b1, b2) => b2.bookId - b1.bookId);
             book_id = books[0].bookId;
         }
-        var today = "";
-        var d = new Date();
-        var td1 = d.getDate();
-        if (td1 <= 9) {
-            td1 = "0" + td1;
-        }
-        var tm = d.getMonth();
-        tm = tm + 1;
-        if (tm <= 9) {
-            tm = "0" + tm;
-        }
-        var ty = d.getFullYear();
-        var th = d.getHours();
-        if (th <= 9) {
-            th = "0" + th;
-        }
-        var tmin = d.getMinutes();
-        if (tmin <= 9) {
-            tmin = "0" + tmin;
-        }
-        var ts = d.getSeconds();
-        if (ts <= 9) {
-            ts = "0" + ts;
-        }
-        today = td1 + "-" + (tm) + "-" + ty + " " + th + ":" + tmin + ":" + ts;
-
+        
         let book = {
             bookId: ++book_id,
             bookName: book_name,
             author: author,
             publisher: publisher,
             stocks: stocks,
-            addedDate: today,
+            addedDate: getDateAsDDMMYYYYHHMISS(),
             addedBy: sessionStorage.getItem("user-name")
         };
         let books_count_previous = books.length;
@@ -102,34 +77,4 @@ function add() {
             return false;
         }
     }
-}
-
-/**
- * Check the given data is Alpha Numeric or not.
- */
-function isItAAlphaNumericData(data) {
-    var validCharectors = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    for (let itr = 0; itr < data.length; itr++) {
-        let currentCharector = data[itr];
-        let indexOfCurrentCharector = validCharectors.indexOf(currentCharector);
-        if (indexOfCurrentCharector == -1) {
-            return false;
-        }
-    }
-    return true;
-}
-
-/**
- * Check the given data is Numeric or not.
- */
-function isItANumericData(data) {
-    var validCharectors = "0123456789";
-    for (let itr = 0; itr < data.length; itr++) {
-        let currentCharector = data[itr];
-        let indexOfCurrentCharector = validCharectors.indexOf(currentCharector);
-        if (indexOfCurrentCharector == -1) {
-            return false;
-        }
-    }
-    return true;
 }

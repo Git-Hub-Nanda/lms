@@ -3,22 +3,22 @@ function loadMenu() {
     var menu = document.getElementById("menu");
     if (logindetails == "ADMIN"  ) {
         var adminmenucontent = "<ul>" 
-            + '<li><a href="#" onclick="loadComponent(\'approval\');">APPROVALS</a></li>'
-            + '<li><a href="#" onclick="loadComponent(\'add\');">ADD BOOK</a></li>'
-            + '<li><a href="#" onclick="loadComponent(\'edit\');">EDIT BOOK</a></li>'
-            + '<li><a href="#" onclick="loadComponent(\'delete\');">DELETE BOOK</a></li>'
+            + '<li><a href="#" onclick="displayComponent(\'approval\');">APPROVALS</a></li>'
+            + '<li><a href="#" onclick="displayComponent(\'add\');">ADD BOOK</a></li>'
+            + '<li><a href="#" onclick="displayComponent(\'edit\');">EDIT BOOK</a></li>'
+            + '<li><a href="#" onclick="displayComponent(\'delete\');">DELETE BOOK</a></li>'
         + "</ul>";
         menu.innerHTML = adminmenucontent;
     } else {
-        var studentmenucontent = '<ul class="st-justify-content">' 
-            + '<li><a href="#" onclick="loadComponent(\'request\');">REQUEST BOOK</a></li>'
-            + '<li><a href="#" onclick="loadComponent(\'return\');">RETURN BOOK</a></li>'
+        var studentmenucontent = '<ul>' 
+            + '<li><a href="#" onclick="displayComponent(\'request\');">REQUEST BOOK</a></li>'
+            + '<li><a href="#" onclick="displayComponent(\'return\');">RETURN BOOK</a></li>'
         + '</ul>';
         menu.innerHTML = studentmenucontent; 
     }
 }
 
-function loadComponent(componentId) {
+function displayComponent(componentId) {
     var components = document.getElementById(componentId).parentElement.children;
     for (var itr = 0; itr < components.length; itr++) {
         if (components[itr].id === componentId) {

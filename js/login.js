@@ -11,6 +11,16 @@ const MOCK_USERS = [
         "user-type": "STUDENT",
         "user-name": "5001",
         "password": "5001"
+    },
+    {
+        "user-type": "STUDENT",
+        "user-name": "5002",
+        "password": "5002"
+    },
+    {
+        "user-type": "STUDENT",
+        "user-name": "5003",
+        "password": "5003"
     }
 ];
 

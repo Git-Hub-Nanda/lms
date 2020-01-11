@@ -140,31 +140,8 @@ function save() {
     selectedbook.author = author;
     selectedbook.publisher = publisher;
     selectedbook.stocks = stocks;
-    var d = new Date();
-    var td1 = d.getDate();
-    if (td1 <= 9) {
-      td1 = "0" + td1;
-    }
-    var tm = d.getMonth();
-    tm = tm + 1;
-    if (tm <= 9) {
-      tm = "0" + tm;
-    }
-    var ty = d.getFullYear();
-    var th = d.getHours();
-    if (th <= 9) {
-      th = "0" + th;
-    }
-    var tmin = d.getMinutes();
-    if (tmin <= 9) {
-      tmin = "0" + tmin;
-    }
-    var ts = d.getSeconds();
-    if (ts <= 9) {
-      ts = "0" + ts;
-    }
-    // var td = new Date(td1-tm-ty/th-tm-ts);
-    selectedbook.lastEditedDate = td1 + "-" + (tm) + "-" + ty + " " + th + ":" + tmin + ":" + ts;
+    
+    selectedbook.lastEditedDate = getDateAsDDMMYYYYHHMISS();
     var UserName = sessionStorage.getItem("user-name");
     console.log(" User Name ", UserName);
     selectedbook.lastEditedBy = UserName;

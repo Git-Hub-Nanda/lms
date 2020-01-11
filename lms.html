@@ -14,17 +14,20 @@
             loadMenu();
             loadBooksToEdit();
             loadBooksToDelete();
+            loadBooksToRequest();
         }
     </script>
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <script src="js/navigation.js"></script>
     <script src="js/login.js"></script>
     <script src="js/add.js"></script>
     <script src="js/edit.js"></script>
     <script src="js/delete.js"></script>
+    <script src="js/request.js"></script>
+    <script src="js/common.js"></script>
 </head>
 
 <body onload="loadInitialData();">
@@ -57,6 +60,25 @@
             </div>
             <!-- Actual User Actions -->
             <div class="row user-action-container">
+                <!-- Request -->
+                <div class="request" id="request">
+                    <form action="#">
+                        <h2>Request Book</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div id="requestedBookContainer">
+
+                                </div>
+                                <hr>
+                                <div id="uppercancel">
+                                    <input type="button" value="Cancel" onclick="cancel('edit');">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
                 <!-- Add -->
                 <div class="add" id="add">
                     <form action="#">
