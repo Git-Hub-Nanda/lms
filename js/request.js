@@ -1,4 +1,3 @@
-
 function loadBooksToRequest() {
   var books = getAvailableBooksForTheLoggedInStudent();
   var requestedBookContainer = document.getElementById("requestedBookContainer");
@@ -68,9 +67,10 @@ function loadBooksToRequest() {
     } else {
       requestedBookContainer.innerHTML = "<h3>No Boooks Available</h3><br>";
     }
+  }else {
+    requestedBookContainer.innerHTML = "<h3>No Boooks Available</h3><br>";
   }
 }
-
 
 function request(bookId) {
   console.log("book Id:", bookId);
@@ -104,7 +104,7 @@ function request(bookId) {
     requestedBooks.push(rb);
     console.log(requestedBooks);
     alert("Book request created successfully for the book : " + requestedbook.bookId
-            + "\nRequest Id: " + request_id);
+      + "\nRequest Id: " + request_id);
     var requestedBooks = JSON.stringify(requestedBooks);
     localStorage.setItem("requestedBooks", requestedBooks);
     loadBooksToRequest();

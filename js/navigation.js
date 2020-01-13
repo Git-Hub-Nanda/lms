@@ -12,7 +12,7 @@ function loadMenu() {
     } else {
         var studentmenucontent = '<ul>' 
             + '<li><a href="#" onclick="displayComponent(\'request\');">REQUEST BOOK</a></li>'
-            + '<li><a href="#" onclick="displayComponent(\'return\');">RETURN BOOK</a></li>'
+            + '<li><a href="#" onclick="displayComponent(\'return\');">MY REQUESTS</a></li>'
         + '</ul>';
         menu.innerHTML = studentmenucontent; 
     }
