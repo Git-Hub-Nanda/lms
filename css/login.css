@@ -66,6 +66,13 @@ input[type="button"], input[type="reset"] {
     background-image: linear-gradient(180deg, silver, transparent);
     text-transform: uppercase;
     font-weight: bold;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+input[value="Not Applicable"], input[value="Not Applicable"]:hover{
+    cursor: unset !important;
+    box-shadow: unset !important;
 }
 
 input[type="button"]:hover, input[type="reset"]:hover {

@@ -16,12 +16,13 @@
             loadBooksToDelete();
             loadBooksToRequest();
             loadRequestApprovals();
+            loadMyRequests();
         }
     </script>
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="js/navigation.js"></script>
     <script src="js/login.js"></script>
     <script src="js/add.js"></script>
@@ -30,6 +31,7 @@
     <script src="js/request.js"></script>
     <script src="js/common.js"></script>
     <script src="js/approvals.js"></script>
+    <script src="js/return.js"></script>
 </head>
 
 <body onload="loadInitialData();">
@@ -221,6 +223,24 @@
                         </div>
                     </form>
                 </div>
+                <div class="return" id="return">
+                    <form action="#">
+                        <h2>My Requests</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div id="my-request-book-container">
+
+                                </div>
+                                <hr>
+                                <div>
+                                    <input type="button" value="Cancel" onclick="cancel('return');">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
                 <!-- Search Results -->
                 <div class="search-results" id="search-results">
                     <h2>Searched Data</h2>
