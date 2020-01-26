@@ -107,7 +107,7 @@ iframe {
 }
 
 .see-more button:hover::after {
-    content: "See More >>";
+    content: " >>";
     color: black;
     font-weight: bold;
 }
@@ -149,4 +149,8 @@ iframe {
         top: 0;
         right: 10px;
     }
+}
+
+.see-more>div {
+    display: none;
 }

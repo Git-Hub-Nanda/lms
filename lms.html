@@ -12,11 +12,13 @@
         //Initial data load.
         function loadInitialData() {
             loadMenu();
+            loadSection();
             loadBooksToEdit();
             loadBooksToDelete();
             loadBooksToRequest();
             loadRequestApprovals();
             loadMyRequests();
+            loadFrequentlyUsedBooks();
         }
     </script>
     <title>Home</title>
@@ -239,117 +241,27 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                
-                <!-- Search Results -->
-                <div class="search-results" id="search-results">
-                    <h2>Searched Data</h2>
-                    <hr>
-                    <div class="row">
-                        <div class="data-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Book Name</th>
-                                        <th>Author</th>
-                                        <th>Publisher</th>
-                                        <th>Stocks</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mathematics</td>
-                                        <td>Natarj</td>
-                                        <td>Nauare</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mathematics</td>
-                                        <td>Natarj</td>
-                                        <td>Nauare</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mathematics</td>
-                                        <td>Natarj</td>
-                                        <td>Nauare</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mathematics</td>
-                                        <td>Natarj</td>
-                                        <td>Nauare</td>
-                                        <td>10</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                </div>                
             </div>
-            <!-- Other Details -->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-8">
-                    <div class="sec1">
-                        <p>
-                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
-                            hic
-                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
-                            exercitationem veniam alias voluptatibus consequatur?
-                        </p>
-                        <p>
-                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
-                            hic
-                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
-                            exercitationem veniam alias voluptatibus consequatur?
-                        </p>
-                        <p>
-                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
-                            hic
-                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
-                            exercitationem veniam alias voluptatibus consequatur?
-                        </p>
-                        <p>
-                            ;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum inventore repudiandae aut
-                            hic
-                            fugit tenetur placeat commodi minima. Asperiores vero saepe beatae nostrum quasi! Accusamus
-                            exercitationem veniam alias voluptatibus consequatur?
-                        </p>
-                    </div>
+                <div class="col-xs-12 col-md-6 col-xl-8">
+                    <section class="sec1" id="sec1">
+                        
+                    </section>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                    <div class="frequent-books-wrap">
-                        <div class="frequent-books">
-                            <h2>Mathematics</h2>
-                            <p>
-                                <h4>Author : Linganna</h4>
-                                <h4>Publisher : Linganna</h4>
-                                <h4>Availability : Yes</h4>
-                                <h4>Count : 5</h4>
-                            </p>
-                        </div>
-                        <div class="frequent-books">
-                            <h2>Mathematics</h2>
-                            <p>
-                                <h4>Author : Linganna</h4>
-                                <h4>Publisher : Linganna</h4>
-                                <h4>Availability : Yes</h4>
-                                <h4>Count : 5</h4>
-                            </p>
-                        </div>
-                        <div class="see-more">
-                            <button></button>
-                        </div>
+                <div class="col-xs-12 col-md-6 col-xl-4">
+                    <div class="frequent-books-wrap" id="frequent-books-container">
+                        
                     </div>
                 </div>
             </div>
             <div class="row footer">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 contact-section">
+                <div class="col-xs-6 contact-section">
                     <p>Email&nbsp;<i class="material-icons email">email</i></p>
                     <p>Contact&nbsp;<i class="material-icons phone">phone</i></p>
                     <p>Website&nbsp;<i class="material-icons email">email</i></p>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-xs-6">
                     <p>anandahn110@gmail.com</p>
                     <p>8105610459</p>
                     <p>https://www.lms.com</p>
